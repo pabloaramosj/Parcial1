@@ -1,4 +1,4 @@
-{
+public class Proyecto{
     //Atributos
         private String codigoProyecto;
         private LocalDate fechaInicio;
