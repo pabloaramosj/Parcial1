@@ -1,2 +1,2 @@
-public class SercioAdicional {
+public class ServicioAdicional {
 }
