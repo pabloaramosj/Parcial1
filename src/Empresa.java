@@ -68,7 +68,7 @@ public class Empresa {
         }
         return mensaje;
     }
-    //Unload Cliente
+    //Undate Cliente
     public boolean actualizarCliente(String documentoClienteActualizar, String nombre, int telefono, String correo, String pais){
         int index= encontrarIndexCliente(documentoClienteActualizar);
         boolean respuesta=false;
