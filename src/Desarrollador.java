@@ -1,5 +1,5 @@
 public class Desarrollador {
-        //Atributos
+    //Atributos
     private String nombreDesarrollador;
     private String codigoDesarrollador;
     private String nivel;
@@ -7,8 +7,8 @@ public class Desarrollador {
     private double tarifaDia;
     private String estado;
     private String equipoTrabajo;
-    private Proyecto listProyecto;
-        //Constructor
+    private Proyecto [] listProyectos;
+    //Constructor
     public Desarrollador(String nombreDesarrollador, String codigoDesarrollador, String nivel, int cantidadProyectosSimultaneos,double tarifaDia, String estado, String equipoTrabajo){
         this.nombreDesarrollador=nombreDesarrollador;
         this.codigoDesarrollador=codigoDesarrollador;
@@ -17,6 +17,7 @@ public class Desarrollador {
         this.tarifaDia=tarifaDia;
         this.estado=estado;
         this.equipoTrabajo=equipoTrabajo;
+        listProyectos= new Proyecto[10];
     }
     //Gets and sets
     public String getNombreDesarrollador() {
@@ -73,5 +74,13 @@ public class Desarrollador {
 
     public void setEquipoTrabajo(String equipoTrabajo) {
         this.equipoTrabajo = equipoTrabajo;
+    }
+
+    public Proyecto[] getListProyectos() {
+        return listProyectos;
+    }
+
+    public void setListProyectos(Proyecto[] listProyectos) {
+        this.listProyectos = listProyectos;
     }
 }
