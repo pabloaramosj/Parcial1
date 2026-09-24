@@ -1,54 +1,58 @@
-import java.time.LocalDate;
-
-public class Proyecto {
+public class Cliente {
     //Atributos
-        private String codigoProyecto;
-        private LocalDate fechaInicio;
-        private LocalDate fechaEntrega;
-        private String estado;
-        private String metodoPago;
-        private double pagoTotal;
-        private ServicioAdicional listServicioAdicional;
-        private Cliente theCliente;
-    //Constructor
-    public Proyecto(String codigo, LocalDate fechaInicio,LocalDate fechaEntrega,String estado, String metodoPago, double pagoTotal){
-        this.codigoProyecto=codigo;
-        this.fechaInicio=fechaInicio;
-        this.fechaEntrega=fechaEntrega;
-        this.estado=estado;
-        this.metodoPago=metodoPago;
-        this.pagoTotal=pagoTotal;
-        
+    private String nombre;
+    private String cedula;
+    private int telefono;
+    private String correo;
+    private String pais;
+    private Proyecto listProyecto;
+    //Contructor
+    public Cliente(String nombre, String cedula, int telefono, String correo, String pais, Proyecto listProyecto){
+        this.nombre=nombre;
+        this.cedula=cedula;
+        this.telefono=telefono;
+        this.correo=correo;
+        this.pais=pais;
+        this.listProyecto=listProyecto;
     }
     //gets and sets
-    public String getCodigo() {
-        return codigoProyecto;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setCodigo(String codigo) {
-        this.codigoProyecto = codigo;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public LocalDate getFechaInicio() {
-        return fechaInicio;
+    public String getCedula() {
+        return cedula;
     }
 
-    public void setFechaInicio(LocalDate fechaInicio) {
-        this.fechaInicio = fechaInicio;
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
     }
 
-    public LocalDate getFechaEntrega() {
-        return fechaEntrega;
+    public int getTelefono() {
+        return telefono;
     }
 
-    public void setFechaEntrega(LocalDate fechaEntrega) {
-        this.fechaEntrega = fechaEntrega;
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
     }
 
-    public String getEstado() {
-        return estado;
+    public String getCorreo() {
+        return correo;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
+
+    public String getPais() {
+        return pais;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
+}
