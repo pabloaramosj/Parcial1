@@ -101,7 +101,7 @@ public class Empresa {
         return -1;
     }
 
-        //CRUD Desarrollador
+    //CRUD Desarrollador
     //Create Desarrollador
     public boolean registrarDesarrollador(String nombreDesarrollador,String codigoDesarrollador, int nivel , int cantidadProyectosSimultaneosdouble,double tarifaDia, int estado, String equipoTrabajo){
         Desarrollador nuevoDesarrollador = new Desarrollador(nombreDesarrollador,codigoDesarrollador,nivel,cantidadProyectosSimultaneosdouble,tarifaDia, estado,equipoTrabajo);
@@ -152,24 +152,27 @@ public class Empresa {
         return mensaje;
     }
     //Update Desarrollador
-    public boolean actualizarCliente(String codigoDesarrolladorActualizar, String nombre, int telefono, String correo, String pais){
+    public boolean actualizarDesarrollador(String nombreDesarrolladorActualizar,String codigoDesarrolladorActualizar, int nivelActualizar, int cantidadProyectosSimultaneosActualizar, double tarifaDiaActualizar,int estadoActualizar,String equipoTrabajoActualizar){
         int index= encontrarIndexDesarrollador(codigoDesarrolladorActualizar);
         boolean respuesta=false;
         if(index != -1){
-            listCliente[index].setNombre(nombre);
-            listCliente[index].setTelefono(telefono);
-            listCliente[index].setCorreo(correo);
-            listCliente[index].setPais(pais);
+            listDesarrollarores[index].setNombreDesarrollador(nombreDesarrolladorActualizar);
+            listDesarrollarores[index].setCodigoDesarrollador(codigoDesarrolladorActualizar);
+            listDesarrollarores[index].setNivel(nivelActualizar);
+            listDesarrollarores[index].setCantidadProyectosSimultaneos(cantidadProyectosSimultaneosActualizar);
+            listDesarrollarores[index].setTarifaDia(tarifaDiaActualizar);
+            listDesarrollarores[index].setEstado(estadoActualizar);
+            listDesarrollarores[index].setEquipoTrabajo(equipoTrabajoActualizar);
             respuesta=true;
         }
         return respuesta;
     }
     //Delete Desarrollador
-    public boolean eliminarCliente(String codigoDesarrolladorEliminar){
+    public boolean eliminarDesarrollador(String codigoDesarrolladorEliminar){
         boolean respuesta= false;
         int index=encontrarIndexDesarrollador(codigoDesarrolladorEliminar);
         if (index != -1){
-            listCliente[index]=null;
+            listDesarrollarores[index]=null;
             respuesta=true;
         }
         return respuesta;
