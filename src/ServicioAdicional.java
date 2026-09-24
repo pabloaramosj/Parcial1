@@ -5,6 +5,7 @@ public class ServicioAdicional {
     private String descripcion;
     private double precio;
     private boolean disponibilidad;
+    private Proyecto theProyecto;
     //Constructor
     public ServicioAdicional(String codigoServicio, String nombre, String descripcion, double precio, boolean disponibilidad){
         this.codigoServicio=codigoServicio;
@@ -52,5 +53,13 @@ public class ServicioAdicional {
 
     public void setDisponibilidad(boolean disponibilidad) {
         this.disponibilidad = disponibilidad;
+    }
+
+    public Proyecto getTheProyecto() {
+        return theProyecto;
+    }
+
+    public void setTheProyecto(Proyecto theProyecto) {
+        this.theProyecto = theProyecto;
     }
 }
