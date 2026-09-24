@@ -116,33 +116,37 @@ public class Empresa {
         return false;
     }
     //Read Desarrollador
-    public String mostrarCliente(String documentoCliente){
+    public String mostrarDesarrolladores(String codigoDesarrolladores){
         String mensaje="";
-        int index=encontrarIndexDesarrollador(documentoCliente);
+        int index=encontrarIndexDesarrollador(codigoDesarrolladores);
         if (index !=-1){
-            Cliente clienteEncontrado= listCliente[index];
+            Desarrollador desarrolladorEncontrado= listDesarrollarores[index];
             mensaje+= "Cliente encontrado" +
-                    "\nNombre: "+clienteEncontrado.getNombre()+
-                    "\nCedula: "+clienteEncontrado.getCedula()+
-                    "\nTelefono: "+clienteEncontrado.getTelefono()+
-                    "\nCorreo electronico: "+clienteEncontrado.getCorreo()+
-                    "\nPais: "+clienteEncontrado.getPais();
+                    "\nNombre: "+desarrolladorEncontrado.getNombreDesarrollador()+
+                    "\nCodigo del Desarrollador: "+desarrolladorEncontrado.getCodigoDesarrollador()+
+                    "\nNivel: "+desarrolladorEncontrado.getNivel()+
+                    "\nProyectos simultaneos: "+desarrolladorEncontrado.getCantidadProyectosSimultaneos()+
+                    "\nTarifa por dia: "+desarrolladorEncontrado.getTarifaDia()+
+                    "\nEstado: "+desarrolladorEncontrado.getEstado()+
+                    "\nEquipo de trabajo: "+desarrolladorEncontrado.getEquipoTrabajo();
         }else {
-            mensaje+="Cliente no encontrado";
+            mensaje+="Desarrollador no encontrado";
         }
         return mensaje;
     }
-    //Read listDesarrollador
-    public String mostrarListClientes(){
-        String mensaje="Lista de clientes";
-        for(int i=0; i<listCliente.length;i++){
-            if(listCliente[i]!=null){
+    //Read listDesarrolladores
+    public String mostrarListDesarrolladores(){
+        String mensaje="Lista de Desarrolladores";
+        for(int i=0; i<listDesarrollarores.length;i++){
+            if(listDesarrollarores[i]!=null){
                 mensaje+=
-                        "\nNombre: "+listCliente[i].getNombre()+
-                                "\nCedula: "+listCliente[i].getCedula()+
-                                "\nTelefono: "+listCliente[i].getTelefono()+
-                                "\nCorreo electronico: "+listCliente[i].getCorreo()+
-                                "\nPais: "+listCliente[i].getPais();
+                        "\nNombre: "+listDesarrollarores[i].getNombreDesarrollador()+
+                                "\nCodigo: "+listDesarrollarores[i].getCodigoDesarrollador()+
+                                "\nNivel: "+listDesarrollarores[i].getNivel()+
+                                "\nProyectos simultaneos: "+listDesarrollarores[i].getCantidadProyectosSimultaneos()+
+                                "\nTarifa por dia: "+listDesarrollarores[i].getTarifaDia()+
+                                "\nEstado: "+listDesarrollarores[i].getEstado()+
+                                "\nEquipo de trabajo: "+listDesarrollarores[i].getEquipoTrabajo();
             }
         }
         return mensaje;
