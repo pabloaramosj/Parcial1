@@ -103,11 +103,11 @@ public class Empresa {
 
     //CRUD Desarrollador
     //Create Desarrollador
-    public boolean registrarDesarrollador(String nombreDesarrollador,String codigoDesarrollador, int nivel , int cantidadProyectosSimultaneosdouble,double tarifaDia, int estado, String equipoTrabajo){
-        Desarrollador nuevoDesarrollador = new Desarrollador(nombreDesarrollador,codigoDesarrollador,nivel,cantidadProyectosSimultaneosdouble,tarifaDia, estado,equipoTrabajo);
+    public boolean registrarDesarrollador(String nombreDesarrollador,String codigoDesarrollador, int nivel){
+        Desarrollador nuevoDesarrollador = new Desarrollador(nombreDesarrollador,codigoDesarrollador,nivel);
         if (encontrarIndexDesarrollador(nuevoDesarrollador.getCodigoDesarrollador())==-1){
-            for(int i=0;i<listCliente.length;i++){
-                if (listCliente[i]==null){
+            for(int i=0;i<listDesarrollador.length;i++){
+                if (listDesarrollador[i]==null){
                     listDesarrollarores[i]=nuevoDesarrollador;
                     return true;
                 }
