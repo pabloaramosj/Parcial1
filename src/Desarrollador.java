@@ -7,6 +7,7 @@ public class Desarrollador {
     private double tarifaDia;
     private String estado;
     private String equipoTrabajo;
+    private Proyecto listProyecto;
         //Constructor
     public Desarrollador(String nombreDesarrollador, String codigoDesarrollador, String nivel, int cantidadProyectosSimultaneos,double tarifaDia, String estado, String equipoTrabajo){
         this.nombreDesarrollador=nombreDesarrollador;
