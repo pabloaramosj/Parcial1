@@ -95,8 +95,3 @@ public class Proyecto{
         this.listServiciosAdicionales = listServiciosAdicionales;
     }
 }
-    }
-
-    public String getEstado() {
-        return estado;
-    }
