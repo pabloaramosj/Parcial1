@@ -5,15 +5,15 @@ public class Cliente {
     private int telefono;
     private String correo;
     private String pais;
-    private Proyecto listProyecto;
+    private Proyecto [] listProyectos;
     //Contructor
-    public Cliente(String nombre, String cedula, int telefono, String correo, String pais, Proyecto listProyecto){
+    public Cliente(String nombre, String cedula, int telefono, String correo, String pais){
         this.nombre=nombre;
         this.cedula=cedula;
         this.telefono=telefono;
         this.correo=correo;
         this.pais=pais;
-        this.listProyecto=listProyecto;
+        listProyectos=new Proyecto[10];
     }
     //gets and sets
     public String getNombre() {
@@ -54,5 +54,13 @@ public class Cliente {
 
     public void setPais(String pais) {
         this.pais = pais;
+    }
+
+    public Proyecto[] getListProyectos() {
+        return listProyectos;
+    }
+
+    public void setListProyectos(Proyecto[] listProyectos) {
+        this.listProyectos = listProyectos;
     }
 }
