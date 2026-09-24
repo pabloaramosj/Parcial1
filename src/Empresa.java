@@ -100,6 +100,86 @@ public class Empresa {
         }
         return -1;
     }
+
+        //CRUD Desarrollador
+    //Create Desarrollador
+    public boolean registrarDesarrollador(String nombreDesarrollador,String codigoDesarrollador, int nivel , int cantidadProyectosSimultaneosdouble,double tarifaDia, int estado, String equipoTrabajo){
+        Desarrollador nuevoDesarrollador = new Desarrollador(nombreDesarrollador,codigoDesarrollador,nivel,cantidadProyectosSimultaneosdouble,tarifaDia, estado,equipoTrabajo);
+        if (encontrarIndexDesarrollador(nuevoDesarrollador.getCodigoDesarrollador())==-1){
+            for(int i=0;i<listCliente.length;i++){
+                if (listCliente[i]==null){
+                    listDesarrollarores[i]=nuevoDesarrollador;
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    //Read Desarrollador
+    public String mostrarCliente(String documentoCliente){
+        String mensaje="";
+        int index=encontrarIndexDesarrollador(documentoCliente);
+        if (index !=-1){
+            Cliente clienteEncontrado= listCliente[index];
+            mensaje+= "Cliente encontrado" +
+                    "\nNombre: "+clienteEncontrado.getNombre()+
+                    "\nCedula: "+clienteEncontrado.getCedula()+
+                    "\nTelefono: "+clienteEncontrado.getTelefono()+
+                    "\nCorreo electronico: "+clienteEncontrado.getCorreo()+
+                    "\nPais: "+clienteEncontrado.getPais();
+        }else {
+            mensaje+="Cliente no encontrado";
+        }
+        return mensaje;
+    }
+    //Read listDesarrollador
+    public String mostrarListClientes(){
+        String mensaje="Lista de clientes";
+        for(int i=0; i<listCliente.length;i++){
+            if(listCliente[i]!=null){
+                mensaje+=
+                        "\nNombre: "+listCliente[i].getNombre()+
+                                "\nCedula: "+listCliente[i].getCedula()+
+                                "\nTelefono: "+listCliente[i].getTelefono()+
+                                "\nCorreo electronico: "+listCliente[i].getCorreo()+
+                                "\nPais: "+listCliente[i].getPais();
+            }
+        }
+        return mensaje;
+    }
+    //Update Desarrollador
+    public boolean actualizarCliente(String codigoDesarrolladorActualizar, String nombre, int telefono, String correo, String pais){
+        int index= encontrarIndexDesarrollador(codigoDesarrolladorActualizar);
+        boolean respuesta=false;
+        if(index != -1){
+            listCliente[index].setNombre(nombre);
+            listCliente[index].setTelefono(telefono);
+            listCliente[index].setCorreo(correo);
+            listCliente[index].setPais(pais);
+            respuesta=true;
+        }
+        return respuesta;
+    }
+    //Delete Desarrollador
+    public boolean eliminarCliente(String codigoDesarrolladorEliminar){
+        boolean respuesta= false;
+        int index=encontrarIndexDesarrollador(codigoDesarrolladorEliminar);
+        if (index != -1){
+            listCliente[index]=null;
+            respuesta=true;
+        }
+        return respuesta;
+    }
+    // index Desarrollador
+    public int encontrarIndexDesarrollador(String codigoDesarrollador){
+        for(int i=0; i<listDesarrollarores.length;i++){
+            if (listDesarrollarores[i]!=null && listDesarrollarores[i].getCodigoDesarrollador().equals(codigoDesarrollador)){
+                return i;
+            }
+        }
+        return -1;
+    }
+    
     // Gets and Sets
 
     public String getNombre() {
