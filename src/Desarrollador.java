@@ -2,14 +2,14 @@ public class Desarrollador {
     //Atributos
     private String nombreDesarrollador;
     private String codigoDesarrollador;
-    private String nivel;
+    private int nivel;
     private int cantidadProyectosSimultaneos;
     private double tarifaDia;
-    private String estado;
+    private int estado;
     private String equipoTrabajo;
     private Proyecto [] listProyectos;
     //Constructor
-    public Desarrollador(String nombreDesarrollador, String codigoDesarrollador, String nivel, int cantidadProyectosSimultaneos,double tarifaDia, String estado, String equipoTrabajo){
+    public Desarrollador(String nombreDesarrollador, String codigoDesarrollador, int nivel, Integer cantidadProyectosSimultaneos, double tarifaDia, int estado, String equipoTrabajo){
         this.nombreDesarrollador=nombreDesarrollador;
         this.codigoDesarrollador=codigoDesarrollador;
         this.nivel=nivel;
@@ -36,11 +36,11 @@ public class Desarrollador {
         this.codigoDesarrollador = codigoDesarrollador;
     }
 
-    public String getNivel() {
+    public int getNivel() {
         return nivel;
     }
 
-    public void setNivel(String nivel) {
+    public void setNivel(int nivel) {
         this.nivel = nivel;
     }
 
@@ -60,11 +60,11 @@ public class Desarrollador {
         this.tarifaDia = tarifaDia;
     }
 
-    public String getEstado() {
+    public int getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(int estado) {
         this.estado = estado;
     }
 
