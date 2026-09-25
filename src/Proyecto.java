@@ -1,19 +1,23 @@
 import java.time.LocalDate;
 
+import static java.time.temporal.ChronoUnit.DAYS;
+
 public class Proyecto{
     //Atributos
     private String codigo;
+    private LocalDate fechaSolicitud;
     private LocalDate fechaInicio;
     private LocalDate fechaEntrega;
-    private String estado;
-    private String metodoPago;
+    private int estado;
+    private int metodoPago;
     private double pagoTotal;
     private Cliente theCliente;
     private Desarrollador [] listDesarrolladores;
     private ServicioAdicional [] listServiciosAdicionales;
     //Constructor
-    public Proyecto(String codigo, LocalDate fechaInicio,LocalDate fechaEntrega,String estado, String metodoPago, double pagoTotal){
+    public Proyecto(String codigo,LocalDate fechaSolicitud, LocalDate fechaInicio,LocalDate fechaEntrega,int estado, int metodoPago, double pagoTotal){
         this.codigo=codigo;
+        this.fechaSolicitud=fechaSolicitud;
         this.fechaInicio=fechaInicio;
         this.fechaEntrega=fechaEntrega;
         this.estado=estado;
@@ -21,7 +25,32 @@ public class Proyecto{
         this.pagoTotal=pagoTotal;
         listDesarrolladores= new Desarrollador[10];
         listServiciosAdicionales= new ServicioAdicional[10];
+        double valorTotal=calcularValorDesarrolladores()+calcularServiciosAdicionale();
+        setPagoTotal(valorTotal);
     }
+
+    public double calcularValorDesarrolladores(){
+        double precioDesarrolladores=0;
+        for(int i=0;i<listDesarrolladores.length;i++){
+            if(listDesarrolladores[i]!=null){
+                precioDesarrolladores+=listDesarrolladores[i].getTarifaDia();
+            }
+            long dias = DAYS.between(fechaInicio, fechaEntrega);
+            precioDesarrolladores=precioDesarrolladores*dias;
+        }
+        return precioDesarrolladores;
+    }
+    public double calcularServiciosAdicionale(){
+        double precioSerciosAdicionales=0;
+        for(int i=0;i<listServiciosAdicionales.length;i++){
+            if(listServiciosAdicionales[i]!=null){
+                precioSerciosAdicionales+=listServiciosAdicionales[i].getPrecio();
+            }
+        }
+        return precioSerciosAdicionales;
+    }
+
+
     //gets and sets
     public String getCodigo() {
         return codigo;
@@ -29,6 +58,14 @@ public class Proyecto{
 
     public void setCodigo(String codigo) {
         this.codigo = codigo;
+    }
+
+    public LocalDate getFechaSolicitud() {
+        return fechaSolicitud;
+    }
+
+    public void setFechaSolicitud(LocalDate fechaSolicitud) {
+        this.fechaSolicitud = fechaSolicitud;
     }
 
     public LocalDate getFechaInicio() {
@@ -47,19 +84,19 @@ public class Proyecto{
         this.fechaEntrega = fechaEntrega;
     }
 
-    public String getEstado() {
+    public int getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(int estado) {
         this.estado = estado;
     }
 
-    public String getMetodoPago() {
+    public int getMetodoPago() {
         return metodoPago;
     }
 
-    public void setMetodoPago(String metodoPago) {
+    public void setMetodoPago(int metodoPago) {
         this.metodoPago = metodoPago;
     }
 
@@ -83,7 +120,7 @@ public class Proyecto{
         return listDesarrolladores;
     }
 
-    public void setListDesarrolladores(Desarrollador[] listDesarrolladores) {
+    public void setListDesarrolladores(Desarrollador [] listDesarrolladores) {
         this.listDesarrolladores = listDesarrolladores;
     }
 
